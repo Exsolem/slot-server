@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const cors = require('cors')
 const PORT = process.env.PORT || 5000;
 
 express()
@@ -8,7 +9,7 @@ express()
   .set('view engine', 'ejs')
   .get('/', (req, res) => mySend(res))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
-//app.use(cors());
+app.use(cors());
 
 const getArr = (count) => {
   const arr = []
