@@ -1,10 +1,12 @@
 const express = require('express')
 const cors = require('cors')
 const app = express()
+const https = require('https');
 
-
-// const hostname = 'http://192.168.31.70'
-const port = 3001
+const httpsServer = https.createServer(app)
+.listen(4000, ()=>{
+  console.log('server is runing at port 4000')
+});
 
 app.use(cors());
 
@@ -48,7 +50,7 @@ app.get('/', (req, res) => {
     mySend(res);
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+// app.listen(port, () => {
+//   console.log(`Example app listening on port ${port}`)
+// })
 
